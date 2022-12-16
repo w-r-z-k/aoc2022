@@ -21,7 +21,7 @@ object Day6 extends App {
     val q = new FiniteQueue[Char](len).enqueueAll(signal.take(len).toList) // start with 1st 4 chars in FIFO Queue
 
     signal.drop(len).collect(x => { // for each char ... collect a tuple (Set(Queue(4 chars)), index)
-      q.enqueue(x).clone.toSet // add 1 char to the 4 char FIFO Q, and create a set from the Q
+      q.enqueue(x).toSet // add 1 char to the 4 char FIFO Q, and create a set from the Q
     }).toList.zipWithIndex.filter(x => x._1.size == len).head._2 + 1 + len // get index of 1st 4 char set
   }
    
