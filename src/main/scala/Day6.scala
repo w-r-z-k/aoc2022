@@ -10,9 +10,7 @@ object Day6 extends App {
   class FiniteQueue[A](n: Int) extends mutable.Queue[A] {// only n spots in FIFO Q
     override def enqueue(elem: A): this.type = {
       this += elem
-      while(super.size > n) {
-        super.dequeue()
-      }
+      while(super.size > n) super.dequeue()
       this
     }
   }
