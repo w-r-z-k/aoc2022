@@ -33,7 +33,8 @@ object Day12 extends App {
       yield (n._1 + d._1, n._2 + d._2)
   }
 
-  // Adapted from: BreadthFirstPaths.java of "Algorithms, 4th Edition" by Robert Sedgewick and Kevin Wayne.
+  // bfs() adapted from: "Algorithms, 4th Edition" by Robert Sedgewick and Kevin Wayne.
+  // Ref: https://algs4.cs.princeton.edu/41graph/BreadthFirstPaths.java.html
 
   val marked = new HashMap[Node, Boolean]()  // marked[v] = is there an s-v path
   val edgeTo = new HashMap[Node, Node]()     // edgeTo[v] = previous edge on shortest s-v path
