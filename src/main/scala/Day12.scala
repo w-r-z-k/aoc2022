@@ -36,15 +36,13 @@ object Day12 extends App {
   // bfs() adapted from: "Algorithms, 4th Edition" by Robert Sedgewick and Kevin Wayne.
   // Ref: https://algs4.cs.princeton.edu/41graph/BreadthFirstPaths.java.html
 
-  val marked = new HashMap[Node, Boolean]()  // marked[v] = is there an s-v path
-  val edgeTo = new HashMap[Node, Node]()     // edgeTo[v] = previous edge on shortest s-v path
-  val distTo = new HashMap[Node, Int]()      // distTo[v] = number of edges shortest s-v path
-
   def bfs(s: Node): Int = { // breadth-first search from a single source
+      val marked = new HashMap[Node, Boolean]()  // marked[v] = is there an s-v path
+      val edgeTo = new HashMap[Node, Node]()     // edgeTo[v] = previous edge on shortest s-v path
+      val distTo = new HashMap[Node, Int]()      // distTo[v] = number of edges shortest s-v path
       val q: Queue[Node] = new Queue[Node]()
       val nNodes = xl * yl
       for (x <- 0 until xl; y <- 0 until yl) distTo((x, y)) = Int.MaxValue
-      for (x <- 0 until xl; y <- 0 until yl) marked((x, y)) = false
       distTo(s) = 0
       marked(s) = true;
       q.enqueue(s);
